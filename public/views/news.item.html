@@ -1,0 +1,5 @@
+<div>{{item.date*1000 | date:'HH:mm:ss dd-MM-yyyy'}}</div>
+<div class="news_name">{{item.name}}</div>
+<div ng-bind-html="item.text" class="news_text"></div>
+<div slideit="item.photos"></div>
+<div>Likes: {{item.likesCount}}</div>

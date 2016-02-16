@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="HsApp">
+<head>
+	<base href="/">
+	<meta charset="UTF-8">
+	<title>Test</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="js/libs/bxslider/jquery.bxslider.min.css">
+	<link rel="stylesheet" href="js/libs/angular-bootstrap-lightbox-master/dist/angular-bootstrap-lightbox.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="MainCtrl">
+	<header class="page-header">
+		<nav class="container nav-container">
+			<ul class="nav nav-pills">
+				<li ng-repeat="item in menuItems"  ng-click="select(item[0])" ng-class="{ 'active': isActive(item[0]) }">
+					<a href="/{{item[0] | lowercase}}" ng-bind="item[1]"></a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<div class="container" ui-view>
+		<div class="col-lg-6 input_field">
+			<form ng-submit="sendRequest()">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Поиск новостей..." ng-model="query" ng-submit="sendRequest()" autocomplete="on">
+					<span class="input-group-btn">
+						<input type="submit" class="btn btn-primary" value="Найти">
+					</span>
+			    </div>
+			</form>
+		</div>
+	</div>
+	<script src="https://vk.com/js/api/openapi.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	  VK.init({
+	    apiId: 5287113
+	  });
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+	<script src="js/libs/angular-ui-router.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-sanitize.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="js/libs/bxslider/jquery.bxslider.min.js"></script>
+	<script src="js/libs/ui-bootstrap-tpls-1.1.2.min.js"></script>
+	<script src="js/libs/angular-bootstrap-lightbox-master/dist/angular-bootstrap-lightbox.min.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>

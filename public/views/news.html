@@ -1,0 +1,10 @@
+<div ng-repeat="item in news" class="news">
+	<div>{{item.date*1000 | date:'HH:mm:ss dd-MM-yyyy'}}</div>
+	<div class="news_name">{{item.name}}</div>
+	<!-- <div>{{item.text}}</div> -->
+	<div ng-bind-html="item.text" class="news_text"></div>
+	<div slideit="item.photos"></div>
+	<div>Likes: {{item.likesCount}}</div>
+	<a class="btn btn-primary" href="/news/{{$index + 1}}" role="button">Посмотреть</a>
+	<hr>
+</div>
